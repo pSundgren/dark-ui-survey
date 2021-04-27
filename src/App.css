@@ -2,6 +2,7 @@ html,
 body,
 #root {
   background-color: #f4f4f4;
+  font-family: "Roboto", sans-serif;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -46,14 +47,31 @@ body {
   border-radius: 2em;
 }
 
+.question-body {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 h1 {
   font-size: x-large;
   padding: 0 6em;
 }
 
 p {
+  padding: 0 9em 2em 9em;
   color: #808080;
 }
 
+.informative-text {
+  text-align: start;
+}
+
 .btn-group {
+  display: flex;
+  flex-direction: row;
+  width: 30em;
+  justify-content: space-evenly;
 }
