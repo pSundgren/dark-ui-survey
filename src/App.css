@@ -1,77 +1,77 @@
 html,
 body,
 #root {
-  background-color: #f4f4f4;
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  height: 100vh;
-  width: 100vw;
+	background-color: #f4f4f4;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
 }
 
 body {
-  font-family: system-ui;
-  margin: 0;
+	font-family: system-ui;
+	margin: 0;
 }
 
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .flex {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
+	margin-top: 11em;
 }
 
 .flex.fill {
-  height: 50vh;
-  width: 100vw;
-  margin: 15em 0 0 0;
+	height: 50vh;
+	width: 100vw;
 }
 
 .flex.center {
-  justify-content: center;
+	justify-content: center;
 }
 
 .survey-question {
-  height: 50em;
-  width: 70em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  text-align: center;
-  box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.1);
-  border-radius: 2em;
+	height: 40em;
+	width: 70em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	text-align: center;
+	box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.1);
+	border-radius: 2em;
 }
 
 .question-body {
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	height: 35em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid red;
 }
 
 h1 {
-  font-size: x-large;
-  padding: 0 6em;
+	font-size: x-large;
+	padding: 0 6em;
 }
 
 p {
-  padding: 0 9em 2em 9em;
-  color: #808080;
+	padding: 0 9em 2em 9em;
+	color: #808080;
 }
 
 .informative-text {
-  text-align: start;
+	text-align: start;
 }
 
 .btn-group {
-  display: flex;
-  flex-direction: row;
-  width: 30em;
-  justify-content: space-evenly;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
