@@ -3,15 +3,14 @@ import { useTransition, animated } from '@react-spring/web';
 
 import './App.css';
 import styles from './styles.module.css';
-import { Button } from '@material-ui/core';
 
-import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
-import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
+/* Survey pages */
 import First from './questions/First';
 import Second from './questions/Second';
 import Third from './questions/Third';
 import Fourth from './questions/Fourth';
 import Fifth from './questions/Fifth';
+import Sixth from './questions/Sixth';
 
 const SurveyQuestion = ({ children }) => (
 	<div className="survey-question">{children}</div>
@@ -32,8 +31,14 @@ function App() {
 		leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
 	});
 
-	const previous = useCallback(() => set((state) => (state - 1) % 5), []);
-	const next = useCallback(() => set((state) => (state + 1) % 5), []);
+	const previous = useCallback(
+		() => set((state) => (state - 1) % pages.length),
+		[]
+	);
+	const next = useCallback(
+		() => set((state) => (state + 1) % pages.length),
+		[]
+	);
 
 	const handleFieldOfStudyChoice = (event) => {
 		setFieldOfStudy(event.target.value);
@@ -122,6 +127,13 @@ function App() {
 				</SurveyQuestion>
 			</animated.div>
 		),
+		({ style }) => (
+			<animated.div style={{ ...style }}>
+				<SurveyQuestion>
+					<Sixth onClick={next} />
+				</SurveyQuestion>
+			</animated.div>
+		),
 	];
 
 	return (
@@ -129,64 +141,7 @@ function App() {
 			<div className={`flex fill center ${styles.container}`}>
 				{transitions((style, i) => {
 					const Page = pages[i];
-					switch (i) {
-						case 0:
-							return <Page style={style} />;
-						case 1:
-							return <Page style={style} />;
-						case 2:
-							return (
-								<Page style={style}>
-									<div className="btn-group">
-										<Button
-											onClick={previous}
-											variant="contained"
-											startIcon={
-												<NavigateBeforeRoundedIcon />
-											}
-										>
-											Take me back
-										</Button>
-										<Button
-											type="submit"
-											color="primary"
-											variant="contained"
-											endIcon={
-												<NavigateNextRoundedIcon />
-											}
-										>
-											Next question
-										</Button>
-									</div>
-								</Page>
-							);
-						default:
-							return (
-								<Page style={style}>
-									<div className="btn-group">
-										<Button
-											onClick={previous}
-											variant="contained"
-											startIcon={
-												<NavigateBeforeRoundedIcon />
-											}
-										>
-											Take me back
-										</Button>
-										<Button
-											onClick={next}
-											color="primary"
-											variant="contained"
-											endIcon={
-												<NavigateNextRoundedIcon />
-											}
-										>
-											Next question
-										</Button>
-									</div>
-								</Page>
-							);
-					}
+					return <Page style={style} />;
 				})}
 			</div>
 		</div>

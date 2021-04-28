@@ -48,10 +48,6 @@ function Fifth({ handleChoice, onSubmit, value, goBack }) {
 					style={{ margin: '0 0 0 .3em' }}
 				/>
 			</h1>
-			<p>
-				For instance - do you normally study in a well lit environment
-				or the contrary?
-			</p>
 			<form onSubmit={handleSubmit}>
 				<FormControl component="fieldset" error={error}>
 					<RadioGroup
