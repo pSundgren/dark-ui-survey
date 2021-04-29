@@ -50,8 +50,8 @@ function Fourth({ handleChoice, onSubmit, value, goBack }) {
 			<form onSubmit={handleSubmit}>
 				<FormControl component="fieldset" error={error}>
 					<RadioGroup
-						aria-label="fos"
-						name="fos"
+						aria-label="defaultTheme"
+						name="defaultTheme"
 						value={value}
 						onChange={handleChoice}
 						style={{ margin: '3em 0 3em 0' }}

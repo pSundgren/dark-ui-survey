@@ -35,8 +35,8 @@ function Eigth({ handleChoice, onSubmit, value, goBack }) {
 				<FormControl component="fieldset">
 					<Grid container spacing={1}>
 						<RadioGroup
-							aria-label="textfield"
-							name="textfield"
+							aria-label="readingField"
+							name="readingField"
 							value={value}
 							onChange={handleChoice}
 							row={true}
@@ -47,7 +47,7 @@ function Eigth({ handleChoice, onSubmit, value, goBack }) {
 							<div className="column">
 								<LightReadingField />
 								<FormControlLabel
-									value="dark-mode"
+									value="darkMode"
 									style={{ margin: '1em 0 0 0' }}
 									control={<Radio color="primary" />}
 								/>
@@ -55,7 +55,7 @@ function Eigth({ handleChoice, onSubmit, value, goBack }) {
 							<div className="column">
 								<DarkReadingField />
 								<FormControlLabel
-									value="light-mode"
+									value="lightMode"
 									style={{ margin: '1em 0 0 0' }}
 									control={<Radio color="primary" />}
 								/>

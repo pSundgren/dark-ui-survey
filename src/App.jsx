@@ -13,6 +13,7 @@ import Fifth from './questions/Fifth';
 import Sixth from './questions/Sixth';
 import Seventh from './questions/Seventh';
 import Eigth from './questions/Eigth';
+import Ninth from './questions/Ninth';
 
 const SurveyQuestion = ({ children }) => (
 	<div className="survey-question">{children}</div>
@@ -44,24 +45,26 @@ function App() {
 		[]
 	);
 
-	const handleFieldOfStudyChoice = (event) => {
-		setFieldOfStudy(event.target.value);
-	};
-
-	const handleColorThemeChoice = (event) => {
-		setColorTheme(event.target.value);
-	};
-
-	const handleEnvironmentChoice = (event) => {
-		setEnvironment(event.target.value);
-	};
-
-	const handleTextInputChoice = (event) => {
-		setTextInput(event.target.value);
-	};
-
-	const handleReadingChoice = (event) => {
-		setReading(event.target.value);
+	const handleChoice = (event) => {
+		switch (event.target.name) {
+			case 'fieldOfStudy':
+				setFieldOfStudy(event.target.value);
+				break;
+			case 'defaultTheme':
+				setColorTheme(event.target.value);
+				break;
+			case 'environmentSetting':
+				setEnvironment(event.target.value);
+				break;
+			case 'textField':
+				setTextInput(event.target.value);
+				break;
+			case 'readingField':
+				setReading(event.target.value);
+				break;
+			default:
+				break;
+		}
 	};
 
 	const pages = [
@@ -83,7 +86,7 @@ function App() {
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Third
-						handleChoice={handleFieldOfStudyChoice}
+						handleChoice={handleChoice}
 						value={fieldOfStudy}
 						goBack={previous}
 						onSubmit={() => {
@@ -103,7 +106,7 @@ function App() {
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Fourth
-						handleChoice={handleColorThemeChoice}
+						handleChoice={handleChoice}
 						value={colorTheme}
 						goBack={previous}
 						onSubmit={() => {
@@ -123,7 +126,7 @@ function App() {
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Fifth
-						handleChoice={handleEnvironmentChoice}
+						handleChoice={handleChoice}
 						value={environment}
 						goBack={previous}
 						onSubmit={() => {
@@ -150,7 +153,7 @@ function App() {
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Seventh
-						handleChoice={handleTextInputChoice}
+						handleChoice={handleChoice}
 						value={textInput}
 						goBack={previous}
 						onSubmit={() => {
@@ -170,7 +173,7 @@ function App() {
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Eigth
-						handleChoice={handleReadingChoice}
+						handleChoice={handleChoice}
 						value={reading}
 						goBack={previous}
 						onSubmit={() => {
@@ -178,6 +181,27 @@ function App() {
 								...answers,
 								readingChoice: reading,
 							});
+							if (reading) {
+								next();
+							}
+						}}
+					/>
+				</SurveyQuestion>
+			</animated.div>
+		),
+		({ style }) => (
+			<animated.div style={{ ...style }}>
+				<SurveyQuestion>
+					<Ninth
+						handleChoice={handleChoice}
+						value={reading}
+						goBack={previous}
+						onSubmit={() => {
+							setAnswers({
+								...answers,
+								readingChoice: reading,
+							});
+							console.log(answers);
 							if (reading) {
 								next();
 							}

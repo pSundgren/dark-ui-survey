@@ -56,8 +56,8 @@ function Third({ handleChoice, onSubmit, value, goBack }) {
 						alignItems="flex-start"
 					>
 						<RadioGroup
-							aria-label="fos"
-							name="fos"
+							aria-label="fieldOfStudy"
+							name="fieldOfStudy"
 							value={value}
 							onChange={handleChoice}
 							style={{
@@ -66,6 +66,7 @@ function Third({ handleChoice, onSubmit, value, goBack }) {
 						>
 							{fos.map((e) => (
 								<FormControlLabel
+									key={e}
 									value={e}
 									control={<Radio color="primary" />}
 									label={e}
@@ -73,14 +74,15 @@ function Third({ handleChoice, onSubmit, value, goBack }) {
 							))}
 						</RadioGroup>
 						<RadioGroup
-							aria-label="fos"
-							name="fos"
+							aria-label="fieldOfStudy"
+							name="fieldOfStudy"
 							value={value}
 							onChange={handleChoice}
 							style={{ margin: '2em 0 3em 3em' }}
 						>
 							{fos2.map((e) => (
 								<FormControlLabel
+									key={e}
 									value={e}
 									control={<Radio color="primary" />}
 									label={e}

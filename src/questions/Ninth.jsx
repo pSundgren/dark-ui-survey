@@ -8,7 +8,6 @@ import {
 	Radio,
 	RadioGroup,
 	SvgIcon,
-	TextField,
 } from '@material-ui/core';
 
 import LightInput from './LightInput';
@@ -28,7 +27,7 @@ const lightTheme = createMuiTheme({
 	},
 });
 
-function Seventh({ handleChoice, onSubmit, value, goBack }) {
+function Ninth({ handleChoice, onSubmit, value, goBack }) {
 	return (
 		<div>
 			<h1>
@@ -51,8 +50,8 @@ function Seventh({ handleChoice, onSubmit, value, goBack }) {
 					<FormControl component="fieldset">
 						<Grid container spacing={1}>
 							<RadioGroup
-								aria-label="textField"
-								name="textField"
+								aria-label="textfield"
+								name="textfield"
 								value={value}
 								onChange={handleChoice}
 								row={true}
@@ -65,7 +64,7 @@ function Seventh({ handleChoice, onSubmit, value, goBack }) {
 										<DarkInput />
 									</div>
 									<FormControlLabel
-										value="dark-mode"
+										value="darkMode"
 										style={{ margin: '1em 0 0 0' }}
 										control={<Radio color="primary" />}
 									/>
@@ -75,7 +74,7 @@ function Seventh({ handleChoice, onSubmit, value, goBack }) {
 										<LightInput />
 									</div>
 									<FormControlLabel
-										value="light-mode"
+										value="lightMode"
 										style={{ margin: '1em 0 0 0' }}
 										control={<Radio color="primary" />}
 									/>
@@ -110,4 +109,4 @@ function Seventh({ handleChoice, onSubmit, value, goBack }) {
 	);
 }
 
-export default Seventh;
+export default Ninth;
