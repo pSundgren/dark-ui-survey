@@ -11,6 +11,8 @@ import Third from './questions/Third';
 import Fourth from './questions/Fourth';
 import Fifth from './questions/Fifth';
 import Sixth from './questions/Sixth';
+import Seventh from './questions/Seventh';
+import Eigth from './questions/Eigth';
 
 const SurveyQuestion = ({ children }) => (
 	<div className="survey-question">{children}</div>
@@ -23,6 +25,8 @@ function App() {
 	const [fieldOfStudy, setFieldOfStudy] = useState('');
 	const [colorTheme, setColorTheme] = useState('');
 	const [environment, setEnvironment] = useState('');
+	const [textInput, setTextInput] = useState('');
+	const [reading, setReading] = useState('');
 
 	const transitions = useTransition(index, {
 		keys: null,
@@ -50,6 +54,14 @@ function App() {
 
 	const handleEnvironmentChoice = (event) => {
 		setEnvironment(event.target.value);
+	};
+
+	const handleTextInputChoice = (event) => {
+		setTextInput(event.target.value);
+	};
+
+	const handleReadingChoice = (event) => {
+		setReading(event.target.value);
 	};
 
 	const pages = [
@@ -87,7 +99,7 @@ function App() {
 				</SurveyQuestion>
 			</animated.div>
 		),
-		({ style, children }) => (
+		({ style }) => (
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Fourth
@@ -107,7 +119,7 @@ function App() {
 				</SurveyQuestion>
 			</animated.div>
 		),
-		({ style, children }) => (
+		({ style }) => (
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Fifth
@@ -131,6 +143,46 @@ function App() {
 			<animated.div style={{ ...style }}>
 				<SurveyQuestion>
 					<Sixth onClick={next} />
+				</SurveyQuestion>
+			</animated.div>
+		),
+		({ style }) => (
+			<animated.div style={{ ...style }}>
+				<SurveyQuestion>
+					<Seventh
+						handleChoice={handleTextInputChoice}
+						value={textInput}
+						goBack={previous}
+						onSubmit={() => {
+							setAnswers({
+								...answers,
+								textInput: textInput,
+							});
+							if (textInput) {
+								next();
+							}
+						}}
+					/>
+				</SurveyQuestion>
+			</animated.div>
+		),
+		({ style }) => (
+			<animated.div style={{ ...style }}>
+				<SurveyQuestion>
+					<Eigth
+						handleChoice={handleReadingChoice}
+						value={reading}
+						goBack={previous}
+						onSubmit={() => {
+							setAnswers({
+								...answers,
+								readingChoice: reading,
+							});
+							if (reading) {
+								next();
+							}
+						}}
+					/>
 				</SurveyQuestion>
 			</animated.div>
 		),

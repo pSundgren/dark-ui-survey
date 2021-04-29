@@ -60,7 +60,9 @@ function Third({ handleChoice, onSubmit, value, goBack }) {
 							name="fos"
 							value={value}
 							onChange={handleChoice}
-							style={{ margin: '2em 3em 0 0' }}
+							style={{
+								margin: '2em 3em 0 0',
+							}}
 						>
 							{fos.map((e) => (
 								<FormControlLabel
