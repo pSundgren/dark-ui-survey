@@ -23,15 +23,16 @@ function Third({ handleChoice, onSubmit, value, goBack }) {
 		'Journalism',
 		'Political science',
 		'Public relations',
+		'Other',
 	];
 
 	const fos2 = [
 		'Business administration',
+		'Computer science',
 		'Economics',
 		'Engineering',
 		'Pharmacy',
 		'Psychology',
-		'Other',
 	];
 
 	return (
@@ -78,7 +79,7 @@ function Third({ handleChoice, onSubmit, value, goBack }) {
 							name="fieldOfStudy"
 							value={value}
 							onChange={handleChoice}
-							style={{ margin: '2em 0 3em 3em' }}
+							style={{ margin: '2em 0 5em 3em' }}
 						>
 							{fos2.map((e) => (
 								<FormControlLabel

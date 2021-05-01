@@ -51,8 +51,8 @@ function Fifth({ handleChoice, onSubmit, value, goBack }) {
 			<form onSubmit={handleSubmit}>
 				<FormControl component="fieldset" error={error}>
 					<RadioGroup
-						aria-label="environmentSetting"
-						name="environmentSetting"
+						aria-label="environmentLightning"
+						name="environmentLightning"
 						value={value}
 						onChange={handleChoice}
 						style={{ margin: '3em 0 3em 0' }}

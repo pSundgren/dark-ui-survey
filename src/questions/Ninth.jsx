@@ -10,8 +10,8 @@ import {
 	SvgIcon,
 } from '@material-ui/core';
 
-import LightInput from './LightInput';
-import DarkInput from './DarkInput';
+import LightForm from '../components/LightForm';
+import DarkForm from '../components/DarkForm';
 
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -32,8 +32,8 @@ function Ninth({ handleChoice, onSubmit, value, goBack }) {
 		<div>
 			<h1>
 				<FormatQuoteRoundedIcon />
-				Now, take a look at these input field and tell us which one
-				you'd prefer
+				Now, take a look at these forms and tell us which one you'd
+				prefer
 				<SvgIcon
 					color="error"
 					fontSize="small"
@@ -45,13 +45,13 @@ function Ninth({ handleChoice, onSubmit, value, goBack }) {
 				Feel free to play around with the elements, it won't impact your
 				overall survey answer
 			</p>
-			<ThemeProvider theme={lightTheme}>
-				<form onSubmit={onSubmit}>
+			<form onSubmit={onSubmit}>
+				<ThemeProvider theme={lightTheme}>
 					<FormControl component="fieldset">
 						<Grid container spacing={1}>
 							<RadioGroup
-								aria-label="textfield"
-								name="textfield"
+								aria-label="survey"
+								name="survey"
 								value={value}
 								onChange={handleChoice}
 								row={true}
@@ -60,8 +60,8 @@ function Ninth({ handleChoice, onSubmit, value, goBack }) {
 								}}
 							>
 								<div className="column">
-									<div className="dark">
-										<DarkInput />
+									<div className="dark2">
+										<DarkForm />
 									</div>
 									<FormControlLabel
 										value="darkMode"
@@ -70,8 +70,8 @@ function Ninth({ handleChoice, onSubmit, value, goBack }) {
 									/>
 								</div>
 								<div className="column">
-									<div className="light">
-										<LightInput />
+									<div className="light2">
+										<LightForm />
 									</div>
 									<FormControlLabel
 										value="lightMode"
@@ -103,8 +103,8 @@ function Ninth({ handleChoice, onSubmit, value, goBack }) {
 							</Button>
 						</div>
 					</FormControl>
-				</form>
-			</ThemeProvider>
+				</ThemeProvider>
+			</form>
 		</div>
 	);
 }

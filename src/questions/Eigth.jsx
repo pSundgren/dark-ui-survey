@@ -14,8 +14,8 @@ import FormatQuoteRoundedIcon from '@material-ui/icons/FormatQuoteRounded';
 import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import ErrorOutlineRoundedIcon from '@material-ui/icons/ErrorOutlineRounded';
-import DarkReadingField from './DarkReadingField';
-import LightReadingField from './LightReadingField';
+import DarkReadingField from '../components/DarkReadingField';
+import LightReadingField from '../components/LightReadingField';
 
 function Eigth({ handleChoice, onSubmit, value, goBack }) {
 	return (
@@ -35,8 +35,8 @@ function Eigth({ handleChoice, onSubmit, value, goBack }) {
 				<FormControl component="fieldset">
 					<Grid container spacing={1}>
 						<RadioGroup
-							aria-label="readingField"
-							name="readingField"
+							aria-label="readingFieldChoiceField"
+							name="readingFieldChoiceField"
 							value={value}
 							onChange={handleChoice}
 							row={true}

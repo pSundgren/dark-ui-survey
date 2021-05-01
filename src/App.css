@@ -88,8 +88,32 @@ p {
 	box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.1);
 }
 
+.dark2 {
+	height: 16em;
+	width: 20em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #282828;
+	border-radius: 1em;
+	margin: 0 3em;
+	box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.1);
+}
+
 .light {
 	height: 10em;
+	width: 20em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f8f8f8;
+	border-radius: 1em;
+	margin: 0 3em;
+	box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.1);
+}
+
+.light2 {
+	height: 16em;
 	width: 20em;
 	display: flex;
 	justify-content: center;

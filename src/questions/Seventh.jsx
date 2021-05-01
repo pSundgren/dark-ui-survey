@@ -8,11 +8,10 @@ import {
 	Radio,
 	RadioGroup,
 	SvgIcon,
-	TextField,
 } from '@material-ui/core';
 
-import LightInput from './LightInput';
-import DarkInput from './DarkInput';
+import LightInput from '../components/LightInput';
+import DarkInput from '../components/DarkInput';
 
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -65,7 +64,7 @@ function Seventh({ handleChoice, onSubmit, value, goBack }) {
 										<DarkInput />
 									</div>
 									<FormControlLabel
-										value="dark-mode"
+										value="darkMode"
 										style={{ margin: '1em 0 0 0' }}
 										control={<Radio color="primary" />}
 									/>
@@ -75,7 +74,7 @@ function Seventh({ handleChoice, onSubmit, value, goBack }) {
 										<LightInput />
 									</div>
 									<FormControlLabel
-										value="light-mode"
+										value="lightMode"
 										style={{ margin: '1em 0 0 0' }}
 										control={<Radio color="primary" />}
 									/>

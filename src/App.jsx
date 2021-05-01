@@ -14,6 +14,7 @@ import Sixth from './questions/Sixth';
 import Seventh from './questions/Seventh';
 import Eigth from './questions/Eigth';
 import Ninth from './questions/Ninth';
+import Tenth from './questions/Tenth';
 
 const SurveyQuestion = ({ children }) => (
 	<div className="survey-question">{children}</div>
@@ -24,10 +25,12 @@ function App() {
 	const [answers, setAnswers] = useState({});
 
 	const [fieldOfStudy, setFieldOfStudy] = useState('');
-	const [colorTheme, setColorTheme] = useState('');
-	const [environment, setEnvironment] = useState('');
-	const [textInput, setTextInput] = useState('');
-	const [reading, setReading] = useState('');
+	const [defaultTheme, setDefaultTheme] = useState('');
+	const [environmentLightning, setEnvironmentLightning] = useState('');
+	const [textInputChoice, setTextInputChoice] = useState('');
+	const [readingFieldChoice, setReadingFieldChoice] = useState('');
+	const [surveyChoice, setSurveyChoice] = useState('');
+	const timestamp = new Date().toISOString();
 
 	const transitions = useTransition(index, {
 		keys: null,
@@ -38,10 +41,12 @@ function App() {
 
 	const previous = useCallback(
 		() => set((state) => (state - 1) % pages.length),
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[]
 	);
 	const next = useCallback(
 		() => set((state) => (state + 1) % pages.length),
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[]
 	);
 
@@ -51,19 +56,52 @@ function App() {
 				setFieldOfStudy(event.target.value);
 				break;
 			case 'defaultTheme':
-				setColorTheme(event.target.value);
+				setDefaultTheme(event.target.value);
 				break;
-			case 'environmentSetting':
-				setEnvironment(event.target.value);
+			case 'environmentLightning':
+				setEnvironmentLightning(event.target.value);
 				break;
 			case 'textField':
-				setTextInput(event.target.value);
+				setTextInputChoice(event.target.value);
 				break;
-			case 'readingField':
-				setReading(event.target.value);
+			case 'readingFieldChoiceField':
+				setReadingFieldChoice(event.target.value);
+				break;
+			case 'survey':
+				setSurveyChoice(event.target.value);
 				break;
 			default:
 				break;
+		}
+	};
+
+	const sendAnswers = (event) => {
+		event.preventDefault();
+
+		const requestOptions = {
+			method: 'POST',
+			body: JSON.stringify({
+				fieldOfStudy,
+				defaultTheme,
+				environmentLightning,
+				textInputChoice,
+				readingFieldChoice,
+				surveyChoice,
+				timestamp,
+			}),
+			headers: { 'Content-Type': 'application/json' },
+		};
+
+		const params = `${fieldOfStudy}/${defaultTheme}/${environmentLightning}/${textInputChoice}/${readingFieldChoice}/${surveyChoice}/${timestamp}`;
+
+		try {
+			fetch('http://localhost:5000/post/' + params, requestOptions).then(
+				(response) => {
+					return response.json();
+				}
+			);
+		} catch (err) {
+			console.log(err);
 		}
 	};
 
@@ -107,14 +145,14 @@ function App() {
 				<SurveyQuestion>
 					<Fourth
 						handleChoice={handleChoice}
-						value={colorTheme}
+						value={defaultTheme}
 						goBack={previous}
 						onSubmit={() => {
 							setAnswers({
 								...answers,
-								colorTheme: colorTheme,
+								defaultTheme: defaultTheme,
 							});
-							if (colorTheme) {
+							if (defaultTheme) {
 								next();
 							}
 						}}
@@ -127,14 +165,14 @@ function App() {
 				<SurveyQuestion>
 					<Fifth
 						handleChoice={handleChoice}
-						value={environment}
+						value={environmentLightning}
 						goBack={previous}
 						onSubmit={() => {
 							setAnswers({
 								...answers,
-								environment: environment,
+								environmentLightning: environmentLightning,
 							});
-							if (environment) {
+							if (environmentLightning) {
 								next();
 							}
 						}}
@@ -154,14 +192,14 @@ function App() {
 				<SurveyQuestion>
 					<Seventh
 						handleChoice={handleChoice}
-						value={textInput}
+						value={textInputChoice}
 						goBack={previous}
 						onSubmit={() => {
 							setAnswers({
 								...answers,
-								textInput: textInput,
+								textInputChoice: textInputChoice,
 							});
-							if (textInput) {
+							if (textInputChoice) {
 								next();
 							}
 						}}
@@ -174,14 +212,14 @@ function App() {
 				<SurveyQuestion>
 					<Eigth
 						handleChoice={handleChoice}
-						value={reading}
+						value={readingFieldChoice}
 						goBack={previous}
 						onSubmit={() => {
 							setAnswers({
 								...answers,
-								readingChoice: reading,
+								readingFieldChoiceChoice: readingFieldChoice,
 							});
-							if (reading) {
+							if (readingFieldChoice) {
 								next();
 							}
 						}}
@@ -194,19 +232,26 @@ function App() {
 				<SurveyQuestion>
 					<Ninth
 						handleChoice={handleChoice}
-						value={reading}
+						value={surveyChoice}
 						goBack={previous}
-						onSubmit={() => {
+						onSubmit={(event) => {
 							setAnswers({
 								...answers,
-								readingChoice: reading,
+								surveyChoice: surveyChoice,
 							});
-							console.log(answers);
-							if (reading) {
+							if (surveyChoice) {
+								sendAnswers(event);
 								next();
 							}
 						}}
 					/>
+				</SurveyQuestion>
+			</animated.div>
+		),
+		({ style }) => (
+			<animated.div style={{ ...style }}>
+				<SurveyQuestion>
+					<Tenth />
 				</SurveyQuestion>
 			</animated.div>
 		),
