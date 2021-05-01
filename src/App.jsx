@@ -30,6 +30,7 @@ function App() {
 	const [textInputChoice, setTextInputChoice] = useState('');
 	const [readingFieldChoice, setReadingFieldChoice] = useState('');
 	const [surveyChoice, setSurveyChoice] = useState('');
+
 	const timestamp = new Date().toISOString();
 
 	const transitions = useTransition(index, {
@@ -75,7 +76,7 @@ function App() {
 		}
 	};
 
-	const sendAnswers = (event) => {
+	async function sendAnswers(event) {
 		event.preventDefault();
 
 		const requestOptions = {
@@ -89,21 +90,25 @@ function App() {
 				surveyChoice,
 				timestamp,
 			}),
-			headers: { 'Content-Type': 'application/json' },
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
 		};
 
 		const params = `${fieldOfStudy}/${defaultTheme}/${environmentLightning}/${textInputChoice}/${readingFieldChoice}/${surveyChoice}/${timestamp}`;
 
 		try {
-			fetch('http://localhost:5000/post/' + params, requestOptions).then(
-				(response) => {
-					return response.json();
-				}
-			);
+			fetch(
+				'http://192.168.1.139:5000/post/' + params,
+				requestOptions
+			).then((response) => {
+				return response.json();
+			});
 		} catch (err) {
 			console.log(err);
 		}
-	};
+	}
 
 	const pages = [
 		({ style }) => (
@@ -240,8 +245,7 @@ function App() {
 								surveyChoice: surveyChoice,
 							});
 							if (surveyChoice) {
-								sendAnswers(event);
-								next();
+								sendAnswers(event).then(next());
 							}
 						}}
 					/>

@@ -7,7 +7,7 @@ import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 
 function First({ onClick }) {
 	return (
-		<div>
+		<div className="question-body">
 			<h1>
 				<FormatQuoteRoundedIcon />
 				Hello there! We would like to get to know your preference in UI

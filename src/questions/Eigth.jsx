@@ -47,7 +47,7 @@ function Eigth({ handleChoice, onSubmit, value, goBack }) {
 							<div className="column">
 								<LightReadingField />
 								<FormControlLabel
-									value="darkMode"
+									value="lightMode"
 									style={{ margin: '1em 0 0 0' }}
 									control={<Radio color="primary" />}
 								/>
@@ -55,7 +55,7 @@ function Eigth({ handleChoice, onSubmit, value, goBack }) {
 							<div className="column">
 								<DarkReadingField />
 								<FormControlLabel
-									value="lightMode"
+									value="darkMode"
 									style={{ margin: '1em 0 0 0' }}
 									control={<Radio color="primary" />}
 								/>

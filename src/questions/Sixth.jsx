@@ -7,7 +7,7 @@ import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 
 function Sixth({ onClick }) {
 	return (
-		<div>
+		<div className="question-body">
 			<h1>
 				<FormatQuoteRoundedIcon />
 				Now that we know that, let's get on with the survey!

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import ErrorOutlineRoundedIcon from '@material-ui/icons/ErrorOutlineRounded';
 import FormatQuoteRoundedIcon from '@material-ui/icons/FormatQuoteRounded';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
@@ -12,7 +11,6 @@ import {
 	FormHelperText,
 	Radio,
 	RadioGroup,
-	SvgIcon,
 } from '@material-ui/core';
 
 function Fifth({ handleChoice, onSubmit, value, goBack }) {
@@ -20,6 +18,11 @@ function Fifth({ handleChoice, onSubmit, value, goBack }) {
 	const [helperText, setHelperText] = useState('');
 
 	const themes = ['Bright lit', 'Dim lit', 'My environment lightning varies'];
+
+	const isMobile = /Android|webOS|iPhone|iPad|IEMobile|Opera Mini/i.test(
+		navigator.userAgent
+	);
+	const buttonSize = isMobile ? 'small' : 'medium';
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -37,16 +40,10 @@ function Fifth({ handleChoice, onSubmit, value, goBack }) {
 
 	return (
 		<div className="question-body">
-			<h1 className="informative-text">
+			<h1>
 				<FormatQuoteRoundedIcon />
 				How would you estimate your environment lightning whilst you
 				study?
-				<SvgIcon
-					color="error"
-					fontSize="small"
-					component={ErrorOutlineRoundedIcon}
-					style={{ margin: '0 0 0 .3em' }}
-				/>
 			</h1>
 			<form onSubmit={handleSubmit}>
 				<FormControl component="fieldset" error={error}>
@@ -70,9 +67,12 @@ function Fifth({ handleChoice, onSubmit, value, goBack }) {
 						<Button
 							color="default"
 							variant="contained"
-							startIcon={<NavigateBeforeRoundedIcon />}
+							startIcon={
+								isMobile ? null : <NavigateBeforeRoundedIcon />
+							}
 							onClick={goBack}
 							style={{ margin: '0 1em 0 auto' }}
+							size={buttonSize}
 						>
 							Take me back
 						</Button>
@@ -80,9 +80,12 @@ function Fifth({ handleChoice, onSubmit, value, goBack }) {
 							type="submit"
 							color="primary"
 							variant="contained"
-							endIcon={<NavigateNextRoundedIcon />}
+							endIcon={
+								isMobile ? null : <NavigateNextRoundedIcon />
+							}
 							style={{ margin: '0 auto 0 1em' }}
 							disabled={value === ''}
+							size={buttonSize}
 						>
 							Next question
 						</Button>

@@ -8,7 +8,7 @@ import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 function Second({ onClick }) {
 	return (
 		<div className="question-body">
-			<h1 className="informative-text">
+			<h1>
 				<FormatQuoteRoundedIcon />
 				Great! Before we start we would like to clarify why we're doing
 				this and how your participation will be used in this study

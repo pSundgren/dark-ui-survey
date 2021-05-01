@@ -1,11 +1,11 @@
 .container > div {
-  position: absolute;
-  width: 100vw;
-  margin: auto 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  will-change: transform, opacity;
-  -webkit-user-select: none;
-  user-select: none;
+	position: absolute;
+	width: 100vw;
+	margin: auto 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	will-change: transform, opacity;
+	-webkit-user-select: none;
+	user-select: none;
 }

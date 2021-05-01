@@ -9,24 +9,22 @@ body,
 }
 
 body {
-	font-family: system-ui;
 	margin: 0;
+	padding: 0;
 }
 
-*,
-*:after,
-*:before {
-	box-sizing: border-box;
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .flex {
 	display: flex;
 	align-items: center;
-	margin-top: 11em;
 }
 
 .flex.fill {
-	height: 50vh;
 	width: 100vw;
 }
 
@@ -35,8 +33,9 @@ body {
 }
 
 .survey-question {
-	height: 40em;
-	width: 70em;
+	min-height: 40em;
+	width: 90vw;
+	max-width: 70em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -48,21 +47,34 @@ body {
 }
 
 .question-body {
-	height: 35em;
-	width: 70em;
+	height: 90%;
+	width: 90%;
+	padding: 2em 0;
+	max-width: 50em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: 1px solid red;
 }
 
 h1 {
 	font-size: x-large;
-	padding: 0 6em;
+	padding: 0 0;
+}
+
+@media only screen and (max-width: 600px) {
+	h1 {
+		font-size: large;
+	}
+
+	p {
+		font-size: small;
+	}
 }
 
 p {
-	padding: 0 9em 2em 9em;
+	padding: 0 0 2em 0;
 	color: #808080;
 }
 

@@ -29,7 +29,7 @@ const lightTheme = createMuiTheme({
 
 function Seventh({ handleChoice, onSubmit, value, goBack }) {
 	return (
-		<div>
+		<div className="question-body">
 			<h1>
 				<FormatQuoteRoundedIcon />
 				Now, take a look at these input field and tell us which one
